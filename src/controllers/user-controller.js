@@ -11,6 +11,7 @@ const UserController = {
 
       const user = await UserService.create(data);
 
+      
       return res.status(200).json({
         msg: "User criado com sucesso !",
         user,
@@ -86,7 +87,6 @@ const UserController = {
 
       return res.status(200).json({
         msg: "User atualizado !",
-        user,
       });
     } catch (error) {
       console.error(error);

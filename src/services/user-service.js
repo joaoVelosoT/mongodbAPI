@@ -16,6 +16,7 @@ const UserService = {
       if (users.length === 0) {
         return null;
       }
+      return users
     } catch (error) {
       console.error(error);
       throw new Error("Erro, contate o suporte");
@@ -23,6 +24,10 @@ const UserService = {
   },
   getOne: async (id) => {
     try {
+
+      if(id.length > 24){
+        return null
+      }
       const user = await User.findById(id);
 
       if (!user) {
@@ -49,7 +54,7 @@ const UserService = {
       throw new Error("Erro, contate o suporte");
     }
   },
-  delete: async () => {
+  delete: async (id) => {
     try {
       const user = await User.findById(id);
 

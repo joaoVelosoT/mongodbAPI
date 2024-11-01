@@ -19,6 +19,8 @@ const UserValidate = (req, res, next) => {
         msg: "Dados invalidos",
       });
     }
+
+    return next();
   } catch (error) {
     console.error(error);
     return res.status(500).json({
@@ -36,6 +38,8 @@ const UserValidateID = (req, res, next) => {
         msg: "Dados invalidos",
       });
     }
+    return next();
+
   } catch (error) {
     console.error(error);
     return res.status(500).json({
